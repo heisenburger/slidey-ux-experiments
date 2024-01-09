@@ -161,7 +161,7 @@ body.test {
 
 .bottom_screenshot {
   transform: translateX(var(--bg-offset)) scale(var(--bg-scale));
-  filter: grayscale(var(--scrim));
+  filter: brightness(calc(1-var(--scrim)));
 }
 #midimg > img {
     border-radius: calc((1.0 - var(--bg-scale))*200px);
@@ -174,7 +174,7 @@ body.test {
   position: absolute;
   inset: 0;
   background: none;
-  opacity: var(--scrim);
+  backdrop-filter: grayscale(var(--scrim));
 }
 
 .scroller {
