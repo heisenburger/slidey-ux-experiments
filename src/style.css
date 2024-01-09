@@ -161,6 +161,7 @@ body.test {
 
 .bottom_screenshot {
   transform: translateX(var(--bg-offset)) scale(var(--bg-scale));
+  filter: grayscale(var(--scrim));
 }
 #midimg > img {
     border-radius: calc((1.0 - var(--bg-scale))*200px);
@@ -172,7 +173,7 @@ body.test {
 .show_scrim .scrim {
   position: absolute;
   inset: 0;
-  background: black;
+  background: none;
   opacity: var(--scrim);
 }
 
