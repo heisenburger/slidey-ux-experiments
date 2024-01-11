@@ -154,14 +154,16 @@ body.test {
 .top_screenshot {
   z-index: 1;
   transform: translateX(var(--fg-offset)) translateY(var(--vertical-offset)) scale(var(--fg-scale));
+  box-shadow: 1px 1px 20px 0 rgba(0,0,0,0.7);
 }
 #frontimg > img {
   border-radius: calc((1.0 - var(--fg-scale))*200px);
 }
 
 .bottom_screenshot {
+  --pi: 3.14159265359;
   transform: translateX(var(--bg-offset)) scale(var(--bg-scale));
-  filter: brightness(calc(1-var(--scrim)));
+  filter: brightness( calc( (1 - (var(--scrim)) )) );
 }
 #midimg > img {
     border-radius: calc((1.0 - var(--bg-scale))*200px);
@@ -174,7 +176,10 @@ body.test {
   position: absolute;
   inset: 0;
   background: none;
-  backdrop-filter: grayscale(var(--scrim));
+  backdrop-filter: 
+    grayscale(calc(2 * var(--fg-offset-percent))) 
+/*    contrast(calc( (1 - var(--fg-offset-percent) )))*/
+    ;
 }
 
 .scroller {

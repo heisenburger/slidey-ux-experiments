@@ -292,9 +292,13 @@ function scrimOnBottomForForward() {
 }
 
 function offsetToScrimPercent(offsetAsPercent: number) {
-  if (scrimOnBottomForForward())
-    return offsetAsPercent * 0.8;
-  return 0.3 + (1 - offsetAsPercent) * 0.5;
+    if (rightToLeft)
+      return offsetAsPercent * 0.8;
+  return (1 - offsetAsPercent) * 0.8;
+}
+
+function offsetToPercent(offsetAsPercent: number) {
+  return (1 - offsetAsPercent) * 0.8;
 }
 
 let popped = false;
@@ -343,6 +347,7 @@ function handlePointerMove(e: PointerEvent) {
   document.documentElement.style.setProperty("--fg-offset", `${mirroredResult.fgOffset}px`);
   document.documentElement.style.setProperty("--bg-offset", `${mirroredResult.bgOffset}px`);
   document.documentElement.style.setProperty("--scrim", `${offsetToScrimPercent(fgOffsetAsPercent)}`);
+  document.documentElement.style.setProperty("--fg-offset-percent", `${offsetToPercent(fgOffsetAsPercent)}`);
 
   applyFilter(fgOffsetAsPercent);
 
