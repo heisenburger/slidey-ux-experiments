@@ -161,7 +161,6 @@ body.test {
 }
 
 .bottom_screenshot {
-  --pi: 3.14159265359;
   transform: translateX(var(--bg-offset)) scale(var(--bg-scale));
   filter: brightness( calc( (1 - (var(--scrim)) )) );
 }
@@ -178,7 +177,7 @@ body.test {
   background: none;
   backdrop-filter: 
     grayscale(calc(2 * var(--fg-offset-percent))) 
-/*    contrast(calc( (1 - var(--fg-offset-percent) )))*/
+    contrast(calc( (0.5 * (1 - var(--fg-offset-percent) )) + 0.6) )
     ;
 }
 
